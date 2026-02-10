@@ -1,6 +1,6 @@
 # 🗃️ SQL & Database Portfolio
 
-A comprehensive collection of SQL assignments, case studies, database projects, and reference materials from the **Data Science with Ajay Yadav** course — covering MySQL fundamentals through advanced concepts including joins, window functions, subqueries, and real-world case studies.
+A comprehensive collection of SQL assignments, case studies, database projects, and reference materials from a **Data Science training program** — covering MySQL fundamentals through advanced concepts including joins, window functions, subqueries, and real-world case studies.
 
 ---
 
@@ -8,11 +8,11 @@ A comprehensive collection of SQL assignments, case studies, database projects, 
 
 ```
 sql-portfolio/
-├── ajay-class/                 # SQL coursework (Ajay instructor)
+├── module-1/                   # SQL coursework — advanced topics
 │   ├── datetime-functions/     # Date/time function exercises
 │   ├── joins/                  # JOIN operations and queries
 │   └── window-functions/       # Window functions (ROW_NUMBER, RANK, etc.)
-├── vivek-class/                # SQL coursework (Vivek instructor)
+├── module-2/                   # SQL coursework — databases & assignments
 │   ├── databases/              # Database creation scripts (HR, PetStore, etc.)
 │   └── assignments/            # Graded assignments (Joins, Subqueries, Maven)
 ├── case-studies/               # 8 real-world SQL case studies
@@ -29,7 +29,7 @@ sql-portfolio/
 
 ---
 
-## 📋 Coursework — Ajay Class
+## 📋 Coursework — Module 1
 
 | Topic | Files | Key Concepts |
 |-------|-------|-------------|
@@ -39,7 +39,7 @@ sql-portfolio/
 
 ---
 
-## 📋 Coursework — Vivek Class
+## 📋 Coursework — Module 2
 
 ### Database Scripts
 | Database | Description |
@@ -94,7 +94,7 @@ sql-portfolio/
 ### Books & Manuals
 - MySQL 8.0 Reference Manual
 - High Performance MySQL (3rd Edition)
-- CSCI 3410 Lecture Notes
+- Database Systems Lecture Notes
 - Seven Databases in Seven Weeks
 
 ### Sample Database
