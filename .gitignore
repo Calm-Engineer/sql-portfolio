@@ -6,3 +6,9 @@ desktop.ini
 # Temp files
 *.tmp
 ~*
+
+# Database dumps and backups (if added later)
+*.sql.gz
+*.dump
+*.bak
+*.backup
