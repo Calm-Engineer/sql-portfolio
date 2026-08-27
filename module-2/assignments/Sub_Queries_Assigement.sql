@@ -90,7 +90,10 @@ IN (select category_id from category where name='Action'))));
 
 
 -- Select the names and job start dates of all employees who work for the department number 5.
-select* from employees;
-select* from job_history;
+-- NOTE: stray leftover from the earlier HR section — employees/job_history don't
+-- exist in mavenmovies (still the active database here). Disabled rather than
+-- deleted since the note below is the actual point being made.
+-- select* from employees;
+-- select* from job_history;
 -- you can't do sub-query to solve this problem since both required columns are in two different tables. We need to use JOINS to solve these type of problems.
 

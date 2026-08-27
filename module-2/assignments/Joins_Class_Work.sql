@@ -6,7 +6,7 @@ select* from employees; # emp_id
 select* from job_history; # empl_id
 SELECT E.F_NAME, E.L_NAME, E.DEP_ID, JH.START_DATE
 FROM EMPLOYEES AS E
-INNER JOIN JOB_HISTORY AS JH ON E.EMP_ID = JH.EMPL_ID
+INNER JOIN JOB_HISTORY AS JH ON E.EMP_ID = JH.EMP_ID
 WHERE E.DEP_ID = 5;
 
 -- Select the names, job start dates, and job titles of all employees who work for the department number 5
@@ -16,8 +16,8 @@ SELECT* FROM JOBS; # JOB_IDENT
 
 SELECT E.F_NAME, E.L_NAME, JH.START_DATE, J.JOB_TITLE
 FROM EMPLOYEES AS E 
-JOIN JOB_HISTORY AS JH ON E.EMP_ID = JH.EMPL_ID
-JOIN JOBS AS J ON JH.JOBS_ID = J.JOB_IDENT
+JOIN JOB_HISTORY AS JH ON E.EMP_ID = JH.EMP_ID
+JOIN JOBS AS J ON JH.JOB_ID = J.JOB_IDENT
 WHERE E.DEP_ID = 5;
 
 -- Perform a Left Outer Join on the EMPLOYEES and DEPARTMENT tables and 

@@ -1,5 +1,9 @@
 
+CREATE DATABASE IF NOT EXISTS window_functions_practice;
+USE window_functions_practice;
+
 -- Create the sales table
+DROP TABLE IF EXISTS sales;
 CREATE TABLE sales (
     id INT PRIMARY KEY,
     salesperson VARCHAR(50),

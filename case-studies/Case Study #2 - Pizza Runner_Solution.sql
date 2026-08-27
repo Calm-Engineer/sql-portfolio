@@ -133,9 +133,8 @@ SELECT* FROM runners; # runner_id (int), registration_date (date)
 ALTER TABLE customer_orders DROP COLUMN exclusions;
 ALTER TABLE customer_orders DROP COLUMN extras;
 DESCRIBE runner_orders;
-ALTER TABLE runner_orders MODIFY pickup_time DATETIME;
 
--- FIX runner_orders column 
+-- FIX runner_orders column
 -- 1. Check the format of your varchar data 
 -- First, verify which rows do not match the expected DATETIME format.
 SELECT pickup_time FROM runner_orders
@@ -465,7 +464,7 @@ SELECT* FROM customer_orders; # order_id(int), customer_id(int), pizza_id(int), 
 SELECT* FROM pizza_names; # pizza_id (int), pizza_name (text)
 SELECT* FROM runner_orders; # order_id (int), runner_id (int), pickup_time (varchar > datetime), distance (varchar > decimal), duration (varchar > int ), cancellation (varchar)
 
-SELECT AVG(Time_to_Prepare) AS Avg_Time_to_Prepare, COUNT(Pizzas) AS No_of_Pizzas, 
+SELECT AVG(Time_to_Prepare) AS Avg_Time_to_Prepare, COUNT(Pizzas) AS No_of_Pizzas
 FROM (
 	SELECT co.pizza_id AS Pizzas, TIMESTAMPDIFF(MINUTE, co.order_time, ro.pickup_time) AS Time_to_Prepare
 	FROM runner_orders ro

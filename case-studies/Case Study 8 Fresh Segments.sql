@@ -15521,10 +15521,10 @@ VALUES
   
 -- up... SQLINES DEMO ***
 UPDATE fresh_segments.interest_metrics
-SET _month = CASE WHEN _month = 'NULL' THEN NULL::INTEGER ELSE _month::INTEGER END;
+SET _month = CASE WHEN _month = 'NULL' THEN NULL ELSE CAST(_month AS SIGNED) END;
 
 UPDATE fresh_segments.interest_metrics
-SET _year = CASE WHEN _year = 'NULL' THEN NULL::INTEGER ELSE _year::INTEGER END;
+SET _year = CASE WHEN _year = 'NULL' THEN NULL ELSE CAST(_year AS SIGNED) END;
 
 UPDATE fresh_segments.interest_metrics
 SET month_year = NULL
@@ -15538,7 +15538,7 @@ WHERE interest_id = 'NULL';
 -- SQLINES DEMO *** e of the dataset is inserted here as it breaks the DB Fiddle system if I put in all the data!
 INSERT INTO fresh_segments.json_data (raw_data)
 VALUES
-  ('{"month": 7, "year": 2018, "month_year": "07-2018", "a.attribute_interest_id": 32486, "average_composition": 11.89, "average_index": 6.19, "rank": 1, "percentile_rank": 99.86}'::JSON),
+  ('{"month": 7, "year": 2018, "month_year": "07-2018", "a.attribute_interest_id": 32486, "average_composition": 11.89, "average_index": 6.19, "rank": 1, "percentile_rank": 99.86}'),
   ('{"month": 7, "year": 2018, "month_year": "07-2018", "a.attribute_interest_id": 32486, "average_composition": 11.89, "average_index": 6.19, "rank": 1, "percentile_rank": 99.86}'),
 ('{"month": 7, "year": 2018, "month_year": "07-2018", "a.attribute_interest_id": 6106, "average_composition": 9.93, "average_index": 5.31, "rank": 2, "percentile_rank": 99.73}'),
 ('{"month": 7, "year": 2018, "month_year": "07-2018", "a.attribute_interest_id": 18923, "average_composition": 10.85, "average_index": 5.29, "rank": 3, "percentile_rank": 99.59}')

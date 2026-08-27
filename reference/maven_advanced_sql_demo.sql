@@ -5,7 +5,11 @@ Date: January 2025
 Description: Create 2 tables and demo 12 advanced SQL concepts
 */
 
+CREATE DATABASE IF NOT EXISTS advanced_sql_demo;
+USE advanced_sql_demo;
+
 -- create a sales table
+DROP TABLE IF EXISTS sales;
 CREATE TABLE sales (
     dt DATE,
     num_sales INT
@@ -21,6 +25,7 @@ VALUES
     ('2025-01-07', 77);
     
 -- create a final sales table
+DROP TABLE IF EXISTS final_sales;
 CREATE TABLE final_sales (
     dt DATE,
     num_sales INT

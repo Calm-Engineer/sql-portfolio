@@ -125,6 +125,7 @@ FROM customer_table
 WHERE DATE_FORMAT(RegistrationDateTime, "%Y") = 2024;
 
 
+DROP TABLE IF EXISTS tweets;
 create table tweets(customerID int, customername varchar(100), tweet_date datetime);
 show tables;
 
@@ -173,8 +174,8 @@ SELECT UNIX_TIMESTAMP("2024-07-23");
 show databases;
 select * from customer_table;
 SELECT COUNT(*) AS registration_count
-FROM registrations
-WHERE registration_datetime >= CURRENT_DATE - INTERVAL '20 days';
+FROM customer_table
+WHERE RegistrationDateTime >= CURRENT_DATE - INTERVAL 20 DAY;
 
 SELECT COUNT(*) AS customerID
 FROM customer_table

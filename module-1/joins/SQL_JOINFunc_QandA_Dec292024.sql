@@ -31,6 +31,12 @@ select * from departments;
 select * from employees;
 
 -- PART 1
+-- NOTE: The queries below are interview-prep answers against external practice
+-- platforms (DataLemur, HackerRank). They reference tables (pages, page_likes,
+-- trades, users, emails, texts, CITY, COUNTRY) that only exist on those sites
+-- and are not part of this repo's data. Kept for reference only — not runnable
+-- here. Disabled as a block comment so the rest of this file executes cleanly.
+/*
 
 -- https://datalemur.com/questions/sql-page-with-no-likes
 
@@ -87,6 +93,8 @@ GROUP BY COUNTRY.CONTINENT;
 -- https://www.w3resource.com/sql-exercises/employee-database-exercise/sql-subqueries-exercise-employee-database-74.php#google_vignette
 
 -- https://leetcode.com/problems/employees-earning-more-than-their-managers/ (self join )
+
+*/
 
 -- PART 2
 -- INNER JOIN Questions:
@@ -225,10 +233,14 @@ ORDER BY Employees.EmpName DESC;
 -- 16. Basic FULL OUTER JOIN: Write a query to list all employees and all departments, including 
 --     employees without departments and departments without employees.
 
-SELECT Employees.EmpName, Departments.DepartmentName
-FROM Employees
-FULL JOIN Departments
-ON Employees.DepartmentID = Departments.DepartmentID;
+-- MySQL has no FULL JOIN / FULL OUTER JOIN support (confirmed: MySQL silently
+-- misparses "FULL" as an alias rather than rejecting it, producing a confusing
+-- "unknown column" error instead of a syntax error). Use the UNION-based
+-- equivalent below instead.
+-- SELECT Employees.EmpName, Departments.DepartmentName
+-- FROM Employees
+-- FULL JOIN Departments
+-- ON Employees.DepartmentID = Departments.DepartmentID;
 
 -- OR
 
@@ -251,11 +263,12 @@ ON Employees.DepartmentID = Departments.DepartmentID;
 -- 17. FULL OUTER JOIN with condition: Write a query to list all employees and all departments, but 
 --    only include employees with no departments and departments with no employees.
 
-SELECT Employees.EmpName, Departments.DepartmentName
-FROM Employees
-FULL JOIN Departments
-ON Employees.DepartmentID = Departments.DepartmentID
-WHERE Employees.DepartmentID IS NULL OR Departments.DepartmentID IS NULL;
+-- MySQL has no FULL JOIN / FULL OUTER JOIN support (see note above).
+-- SELECT Employees.EmpName, Departments.DepartmentName
+-- FROM Employees
+-- FULL JOIN Departments
+-- ON Employees.DepartmentID = Departments.DepartmentID
+-- WHERE Employees.DepartmentID IS NULL OR Departments.DepartmentID IS NULL;
 
 -- OR
 
@@ -281,15 +294,16 @@ WHERE Employees.DepartmentID IS NULL OR Departments.DepartmentID IS NULL;
 -- 18. FULL OUTER JOIN with aggregate functions: Write a query to list all employees and the 
 --     total salary for each department, including departments without employees and employees without departments.
 
-SELECT Employees.EmpName, Departments.DepartmentName
-FROM Employees
-FULL JOIN Departments
-ON Employees.DepartmentID = Departments.DepartmentID
-WHERE Employees.DepartmentID IS NULL OR Departments.DepartmentID IS NULL;
+-- MySQL has no FULL JOIN / FULL OUTER JOIN support (see note above).
+-- SELECT Employees.EmpName, Departments.DepartmentName
+-- FROM Employees
+-- FULL JOIN Departments
+-- ON Employees.DepartmentID = Departments.DepartmentID
+-- WHERE Employees.DepartmentID IS NULL OR Departments.DepartmentID IS NULL;
 
 -- OR
 
-SELECT 
+SELECT
     Employees.EmpName, Departments.DepartmentName
 FROM
     Employees
@@ -324,6 +338,13 @@ WHERE
 --     employees and all employees who do not belong to any department.
 
 -- Part 3 ( Used W3Schools.com for data)
+-- NOTE: This section queries the W3Schools sample Customers/Orders/OrderDetails/
+-- Products database, which is not part of this repo, and mixes in literal pasted
+-- query RESULT rows (not SQL) as sample output. Kept for reference only — not
+-- runnable here. Disabled as a block comment so the rest of this file executes
+-- cleanly.
+/*
+
 
 -- 1. write query to find top three cities from where highest revenue getting generated 
 
@@ -425,3 +446,4 @@ Centro comercial Moctezuma	Mexico	Antonio Moreno Taquería
 Consolidated Holdings	UK	Around the Horn
 Consolidated Holdings	UK	B's Beverages
 Drachenblut Delikatessend	Germany	Alfreds Futterkiste
+*/
