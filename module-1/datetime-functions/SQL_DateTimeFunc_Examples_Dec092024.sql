@@ -1,3 +1,42 @@
+-- ============================================================
+-- Setup: customer_table (synthetic data — not part of the
+-- original coursework file; added so this file runs standalone)
+-- ============================================================
+CREATE DATABASE IF NOT EXISTS datetime_practice;
+USE datetime_practice;
+
+DROP TABLE IF EXISTS customer_table;
+CREATE TABLE customer_table (
+    CustomerID INT PRIMARY KEY,
+    RegistrationDateTime DATETIME NOT NULL,
+    FirstPaymentDateTime DATETIME
+);
+
+-- Rows 1-12 use fixed historical dates (span multiple years/months/weekdays).
+-- Rows 13-18 use CURDATE()-relative dates so "current year/month",
+-- "last N days" and "today" queries return results no matter when this
+-- script is actually run.
+INSERT INTO customer_table (CustomerID, RegistrationDateTime, FirstPaymentDateTime) VALUES
+(1, '2022-03-14 10:15:00', '2022-03-20 09:00:00'),
+(2, '2022-07-09 16:40:00', '2022-07-25 11:00:00'),
+(3, '2023-01-05 08:20:00', '2023-01-10 08:20:00'),
+(4, '2023-01-18 13:05:00', '2023-02-20 13:05:00'),
+(5, '2023-06-22 09:45:00', '2023-06-25 09:45:00'),
+(6, '2023-06-30 21:10:00', '2023-07-02 21:10:00'),
+(7, '2023-08-02 12:00:00', '2023-08-04 12:00:00'),
+(8, '2023-08-15 07:30:00', NULL),
+(9, '2023-12-24 19:25:00', '2024-01-10 19:25:00'),
+(10, '2024-02-11 11:11:00', '2024-02-15 11:11:00'),
+(11, '2024-04-30 15:50:00', '2024-05-20 15:50:00'),
+(12, '2024-05-14 22:05:00', '2024-05-16 22:05:00'),
+(13, DATE_SUB(CURDATE(), INTERVAL 3 DAY) + INTERVAL 9 HOUR, DATE_SUB(CURDATE(), INTERVAL 1 DAY) + INTERVAL 9 HOUR),
+(14, DATE_SUB(CURDATE(), INTERVAL 10 DAY) + INTERVAL 14 HOUR, DATE_SUB(CURDATE(), INTERVAL 2 DAY) + INTERVAL 14 HOUR),
+(15, CURDATE() + INTERVAL 8 HOUR, CURDATE() + INTERVAL 8 HOUR),
+(16, DATE_SUB(CURDATE(), INTERVAL 45 DAY) + INTERVAL 10 HOUR, DATE_SUB(CURDATE(), INTERVAL 40 DAY) + INTERVAL 10 HOUR),
+(17, DATE_SUB(CURDATE(), INTERVAL 200 DAY) + INTERVAL 17 HOUR, DATE_SUB(CURDATE(), INTERVAL 195 DAY) + INTERVAL 17 HOUR),
+(18, DATE_SUB(CURDATE(), INTERVAL 400 DAY) + INTERVAL 6 HOUR, NULL);
+-- ============================================================
+
 -- 1. Basic Date and Time Functions
 SELECT *, 
        YEAR(RegistrationDateTime) AS Year, 
