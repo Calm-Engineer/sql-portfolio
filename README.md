@@ -113,9 +113,41 @@ sql-portfolio/
 ## 📌 How to Use
 
 1. Install MySQL Server and MySQL Workbench
-2. Import database scripts from `vivek-class/databases/`
+2. Import database scripts from `module-2/databases/`
 3. Run assignment `.sql` files in Workbench
 4. Case studies include both questions and solutions
+
+Every `.sql` file in this repo creates its own database (or reuses one created
+by another file in this repo, e.g. `HR.sql` or `Mavenmovies.sql`) and seeds its
+own data, so each file runs standalone once its dependency (if any) has been
+run first — no external setup or manually-loaded datasets required.
+
+---
+
+## ✅ Verifying This Repo Runs
+
+All 27 `.sql` files in this repo are verified to run cleanly against a real
+MySQL 8.4 instance. You can reproduce that verification locally:
+
+**Requirements:** MySQL Server installed on Windows (any recent 8.x — the
+verifier auto-detects the newest install under `C:\Program Files\MySQL`), and
+PowerShell 7+ (`pwsh`; Windows PowerShell 5.1 is not supported).
+
+```powershell
+pwsh -File .\scripts\verify_sql.ps1
+```
+
+This script:
+- Initializes a **fresh, throwaway** MySQL data directory in your temp folder
+  and starts `mysqld` on port 3307 (not MySQL's default 3306).
+- Runs every `.sql` file in this repo against it, in dependency order, and
+  prints PASS/FAIL per file.
+- Shuts down the throwaway server and deletes its data directory when done.
+
+It never touches any MySQL install, Windows service, or database already on
+your machine — the server it starts is isolated by its own dedicated data
+directory and port, and it is only ever stopped by matching its own process
+ID against that data directory path, never by process name.
 
 ---
 
